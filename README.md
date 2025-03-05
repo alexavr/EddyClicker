@@ -84,17 +84,17 @@ NTHETA = 36
 
 ### Navigation
 
-`↑` - move to next stamp
-`↓` - move to prev stamp
-`LMC` - select the point
-`Esc` - undo the last action
-`RMC` - save the track
-`2xLMC` - pop the point
-`spase` - switch to addinional field (`SCALAR2`) and back
-`cntr + z` - undo the last ellipse and track segment
-Upper level field - time to jump instantly
+* `↑` - move to next stamp
+* `↓` - move to prev stamp
+* `LMC` - select the point
+* `Esc` - undo the last action
+* `RMC` - save the track
+* `2xLMC` - pop the point
+* `spase` - switch to addinional field (`SCALAR2`) and back
+* `cntr + z` - undo the last ellipse and track segment
+* Upper level field - time to jump instantly
 
-You can also use build-in buttons for ZOOM and MOVE the plot.
+You can also use matplotlib build-in buttons to ZOOM and MOVE the plot.
 
 ### Tracking
 
