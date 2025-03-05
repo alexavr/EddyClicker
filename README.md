@@ -55,8 +55,8 @@ SCALAR1_LEVELS_FINE_STEP = 10               # contour interval view
 SCALAR2_VARNAME = 'WSPD'                    # help field (at spacebar)
 
 TRACKS_FOLDER = 'track_folder'  # Output folder for track files
-FILE_RORTEX = "2019-01.nc"      # Input file
-FILE_SAVE = f"test.txt"
+FILE_RORTEX = '2019-01.nc'      # Input file
+FILE_SAVE = f'test.txt'
 
 # Get land map
 ds_land = Dataset(FILE_RORTEX)
