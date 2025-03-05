@@ -40,8 +40,6 @@ class MapApp(tk.Tk):
         super().__init__()
         self.title("EddyClicker")
 
-        # screen_height = 500  # self.winfo_screenheight()
-        # window_width = 1000  # int(screen_height * WIN_SCALE)
         x_offset = 0
         y_offset = 0
         self.geometry(f"{WINDOW_WIDTH}x{SCREEN_HEIGHT}+{x_offset}+{y_offset}")
@@ -84,7 +82,7 @@ class MapApp(tk.Tk):
         self.rortex = None
         self.rortex_data = None
         self.scalar = None
-        self.field = SCALAR_VARNAME1
+        self.field = SCALAR1_VARNAME
         self.curr_centers = None
         self.prev_centers = None
         self.curr_line = None
@@ -141,7 +139,7 @@ class MapApp(tk.Tk):
     def create_map(self):
         remove_collections(self.rortex)
 
-        if self.field == SCALAR_VARNAME1:
+        if self.field == SCALAR1_VARNAME:
             remove_collections(self.scalar)
         else:
             # ...
@@ -155,9 +153,9 @@ class MapApp(tk.Tk):
                                                 c="k", zorder=5, s=30)
             self.curr_centers.remove()
 
-        scalar_field = self.file_rortex[SCALAR_VARNAME1][self.shot, LEVEL, :, :]
+        scalar_field = self.file_rortex[SCALAR1_VARNAME][self.shot, LEVEL, :, :]
         scalar_field = np.where(LAND != 0, scalar_field, np.nan)
-        scalar_field_second = self.file_rortex[SCALAR_VARNAME2][self.shot, LEVEL, :, :]
+        scalar_field_second = self.file_rortex[SCALAR2_VARNAME][self.shot, LEVEL, :, :]
         scalar_field_second = np.where(LAND != 0, scalar_field_second, np.nan)
 
         min_val = np.nanmin(scalar_field)
@@ -165,12 +163,12 @@ class MapApp(tk.Tk):
         min_val_second = np.nanmin(scalar_field_second)
         max_val_second = np.nanmax(scalar_field_second)
 
-        scalar_levels = np.arange(min_val, max_val, SCALAR_LEVELS_STEP)
+        scalar_levels = np.arange(min_val, max_val, SCALAR1_LEVELS_STEP)
         scalar_levels_second = np.arange(min_val_second, max_val_second, 1)
 
         self.ax.contourf(self.mesh_lon, self.mesh_lat, LAND.T, colors="gray")
 
-        if self.field == SCALAR_VARNAME1:
+        if self.field == SCALAR1_VARNAME:
             self.scalar = self.ax.contour(self.mesh_lon, self.mesh_lat, scalar_field.T,
                                             levels=scalar_levels, colors="darkolivegreen", 
                                             linewidths=0.3)
@@ -249,14 +247,14 @@ class MapApp(tk.Tk):
                 self.release_track()
 
     def switch_field(self, event=None):
-        if self.field == SCALAR_VARNAME1:
+        if self.field == SCALAR1_VARNAME:
             # exit("Error! Write code for switching first!!!")
             remove_collections(self.scalar)
             self.field = "new_var"
         else:
             # ...
             remove_collections(self.scalar)
-            self.field = SCALAR_VARNAME1
+            self.field = SCALAR1_VARNAME
         self.scalar = None
         self.create_map()
 

@@ -13,44 +13,46 @@ import numpy as np
 # mv tmp.nc sigma_2_DBSCAN_SMP_level_20_2021-02-23.nc
 #
 
+# DATASET DESCRIPTION
 RES = 'SMP'
 PREF = '6km'
 
-LEVEL = 0
-RORTEX_VARNAME = 'R2D'
-LOCAL_EXTR_VARNAME = 'local_extr_cluster'
-SCALAR_VARNAME1 = 'geopotential'
-SCALAR_VARNAME2 = 'WSPD' # spacebar switch
-VELOCITY_VARNAME = ("ua", "va")
-SCALAR_LEVELS_STEP = 50
-# SCALAR_LEVELS = np.arange(40000, 70000, 50)
-# SCALAR_LEVELS_FINE = np.arange(40000, 70000, 10)
-SCALAR_LEVELS_FINE_STEP = 10
+### MAIN VARIABLES
 
-TRACKS_FOLDER = 'track_folder'
-FILE_RORTEX = "2019-01.nc"
+# GUI windows size
+SCREEN_HEIGHT = 650
+WINDOW_WIDTH = 1200
+
+LEVEL = 0                   # Level of interest
+RORTEX_VARNAME = 'R2D'      # Criteria to plot (contourf)
+LOCAL_EXTR_VARNAME = 'local_extr_cluster'   # dots to plot (scatter)
+SCALAR1_VARNAME = 'geopotential'            # help field (contour)
+SCALAR2_VARNAME = 'WSPD'                    # help field (at spacebar)
+SCALAR1_LEVELS_STEP = 50                    # contour interval
+SCALAR1_LEVELS_FINE_STEP = 10               # contour interval view
+
+TRACKS_FOLDER = 'track_folder'  # track output folder
+FILE_RORTEX = "2019-01.nc"      # Input file
 FILE_SAVE = f"test.txt"
 
-SCREEN_HEIGHT = 650  # self.winfo_screenheight()
-WINDOW_WIDTH = 1200  # int(screen_height * WIN_SCALE)
-
+# Get land map
 ds_land = Dataset(FILE_RORTEX)
 LAND = ds_land["HGT"][ :, :]
 LAND = np.where(LAND > 5, 0, np.nan)
-WIN_SCALE = 1
 
-# CHECK TRACK
-NRADIUS = 100
-NTHETA = 36
-
+# Level height at the title (km)
 LEV_HGT = np.nanmean(
-    ds_land["geopotential"][0, LEVEL, :, :]) / 10 / 1000  # Для вывода высоты уровня на картинку (считаем один раз)
-
+    ds_land["geopotential"][0, LEVEL, :, :]) / 10 / 1000
 ds_land.close()
 
+# Map settings
 from pyproj import Geod
-
 GEOD = Geod(ellps="WGS84")
 PHI = np.linspace(0, 2 * np.pi, 100)
 
 first_time = False
+
+# FOR POSTPROCESSING (CHECK TRACK)
+NRADIUS = 100
+NTHETA = 36
+
