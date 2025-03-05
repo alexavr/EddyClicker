@@ -91,7 +91,7 @@ NTHETA = 36
 * `RMC` - save the track
 * `2xLMC` - pop the point
 * `spase` - switch to addinional field (`SCALAR2`) and back
-* `cntr + z` - undo the last ellipse and track segment
+* `cntr + z` - undo the last ellipse and track segment at ones
 * Upper level field - time to jump instantly
 
 You can also use matplotlib build-in buttons to ZOOM and MOVE the plot.
