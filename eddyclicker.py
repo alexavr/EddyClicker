@@ -46,8 +46,8 @@ class MapApp(tk.Tk):
         self.resizable(False, False)
         # self.geometry("1000x1000")
 
-        if first_time:
-            show_instructions()
+        # if first_time:
+        #     show_instructions()
 
         # Create main container
         container = tk.Frame(self)

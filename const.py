@@ -50,8 +50,6 @@ from pyproj import Geod
 GEOD = Geod(ellps="WGS84")
 PHI = np.linspace(0, 2 * np.pi, 100)
 
-first_time = False
-
 # FOR POSTPROCESSING (CHECK TRACK)
 NRADIUS = 100
 NTHETA = 36
