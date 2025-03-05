@@ -14,7 +14,7 @@ import numpy as np
 #
 
 # DATASET DESCRIPTION
-RES = 'SMP'
+RES  = 'SMP'
 PREF = '6km'
 
 ### MAIN VARIABLES

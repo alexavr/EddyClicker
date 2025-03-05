@@ -98,12 +98,10 @@ You can also use matplotlib build-in buttons to ZOOM and MOVE the plot.
 
 ### Tracking
 
-Strongly suggested to track one vortice at the time!
+It is strongly suggested to track one vortex at a time!
 
-The current time step is written at the title. Using up and down keys on the keyboard you can move forward and backward in time. The current coordinates of the centers of the identified vortices are shown as black dots, the previous ones - as circles. To draw track you need to connect black dot to the circle.
+The current time step is displayed in the title. You can use the up and down arrow keys on the keyboard to move forward and backward in time. The current coordinates of the centers of the identified vortices are shown as black dots, while the previous ones are shown as circles. To draw a track, you need to connect a black dot to a circle.
 
-Then you will have 3 left mouse clicks to mark the size of the vortice (as ellipse). The first to clicks are for the long axis of the ellips, the third click -- for the shot axis. All marked as blue dots.
+Next, you will have three left mouse clicks to mark the size of the vortex (as an ellipse). The first two clicks are for the major axis of the ellipse, and the third click is for the minor axis, all marked as blue dots.
 
-You can create tracks by connecting points on the map in sequence. To create a track, you must connect a circle to a point - this will be the first segment. Then you need to make an ellipse around the structure, it can be done by 3 right-clicks. The first two clicks indicate the major axis, the third click would be the point at the minor axis. When you want to finish the track, right-click on the end point of the track (circle). The geographic coordinates of all points of the track will be sequentially written to the specified file in the `TRACKS_FOLDER` folder. After that, the built track will be deleted from the map.
-
-Click of the last black dot point with LMC to save (`YES`) or delete (`NO`). If you realized you messed up the track -- you can just delete (`NO`) the track and start over.
+To create a track segment, connect a circle to a black dot. Then, you need to draw an ellipse around the structure using three left-clicks. The first two clicks indicate the major axis, and the third click marks the minor axis. When you want to finish the track, right-click on the endpoint of the track (black dot). The geographic coordinates of all points on the track will be sequentially written to the specified file in the `TRACKS_FOLDER` folder. After that, the completed track will be deleted from the map. If you realize you made a mistake with the track, you can simply delete (`NO`) the track and start over.
