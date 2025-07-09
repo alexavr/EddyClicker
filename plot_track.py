@@ -41,7 +41,7 @@ def main():
     trk_file = Path(args.input)
     trk_df = pd.read_csv(trk_file, index_col='time', skipinitialspace=True)
 
-    folder_path = Path(f'./{TRACKS_CHECK_FOLDER}/{trk_file.stem}')
+    folder_path = Path(f'./{TRACKS_CHECK_FOLDER}/{TRACKS_FOLDER}/{trk_file.stem}')
     folder_path.mkdir(parents=True, exist_ok=True)
 
     ### READ: NC FILE
@@ -110,14 +110,23 @@ def main():
         ### PLOT
 
         fig = plt.figure(figsize=([WINDOW_WIDTH/100, SCREEN_HEIGHT/100]), constrained_layout=True)
+        # SMP
         spec = gridspec.GridSpec(ncols=4, nrows=2, hspace=0.1, wspace=0)  #
-        # spec.update(wspace = 1.5, hspace = 0.3)
-        ax1 = fig.add_subplot(spec[0:2, 0:2])
-        ax2 = fig.add_subplot(spec[0, 2], projection='polar')
-        ax3 = fig.add_subplot(spec[0, 3], projection='polar')
+        ax1 = fig.add_subplot(spec[0, :]) # [row, col]
+        ax2 = fig.add_subplot(spec[1, 0], projection='polar')
+        ax3 = fig.add_subplot(spec[1, 1], projection='polar')
         ax4 = fig.add_subplot(spec[1, 2], projection='polar')
         ax5 = fig.add_subplot(spec[1, 3], projection = 'polar')
+        # NAAD
+        # spec = gridspec.GridSpec(ncols=4, nrows=2, hspace=0.1, wspace=0)  #
+        # ax1 = fig.add_subplot(spec[0, 0:2])
+        # ax2 = fig.add_subplot(spec[0, 2], projection='polar')
+        # ax3 = fig.add_subplot(spec[0, 3], projection='polar')
+        # ax4 = fig.add_subplot(spec[1, 2], projection='polar')
+        # ax5 = fig.add_subplot(spec[1, 3], projection = 'polar')
         # ax6 = fig.add_subplot(spec[1, 2], projection = 'polar')
+
+        # spec.update(wspace = 1.5, hspace = 0.3)
 
         hgt.plot(ax=ax1, add_colorbar=False, alpha=0.3, cmap='Greys')
 
