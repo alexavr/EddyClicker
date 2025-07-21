@@ -174,6 +174,7 @@ def main():
 
         plt.savefig(f"{folder_out}/tracks_{int(iit):05d}.png", dpi=150)  # , transparent=True
         # plt.show()
+        plt.clf()
         plt.close()
 
         iit = iit + 1
