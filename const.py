@@ -10,7 +10,7 @@ WINDOW_WIDTH  = 850
 
 # INPUT AND OUTPUT FILE 
 FILE_RORTEX = "NAADl_2010.nc"
-TRACKS_FOLDER = "track_folder.NAAD.Jora.2025-09-02.Winter"  # track output folder
+TRACKS_FOLDER = "track_folder"  # track output folder
 
 # REQUIRED VARIABLES
 LEVEL = 0  # Level of interest
